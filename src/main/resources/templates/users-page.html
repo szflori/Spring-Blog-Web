@@ -1,0 +1,30 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:replace="fragments/header :: header (title='List Users')"></div>
+<body>
+
+<div th:replace="fragments/menu :: menu (current='List Users')"></div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">User Name</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Active</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="blogUser: ${blogUsers}">
+            <td><a th:text="${blogUser.username}" th:href="@{/user/user-form/{id}(id=${blogUser.id})}"></a></td>
+            <td th:text="${blogUser.name}"></td>
+            <td th:text="${blogUser.email}"></td>
+            <td th:text="${blogUser.active}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

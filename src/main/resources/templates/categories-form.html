@@ -1,0 +1,26 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:replace="fragments/header :: header (title='List Category')"></div>
+<body>
+
+<div th:replace="fragments/menu :: menu (current='ListCategory')"></div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Category Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category: ${categories}">
+            <td th:text="${category.id}"></td>
+            <td th:text="${category.title}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

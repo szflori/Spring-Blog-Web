@@ -1,0 +1,19 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:replace="fragments/header :: header (title='Create Category')"></div>
+<body>
+
+<div th:replace="fragments/menu :: menu (current='CreateCategory')"></div>
+
+<div class="container">
+    <form autocomplete="off" action="#" th:action="@{/category/create}" th:object="${category}" method="post" >
+        <div class="form-group">
+            <label for="text">Text</label>
+            <input type="text" class="form-control" id="text" th:field="*{title}">
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
